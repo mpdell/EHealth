@@ -1,0 +1,52 @@
+﻿@model EHealth.User.Web.ViewModels.OrderSummaryViewModel
+<br />
+<h1><b>Thank you For your Purchase!!!!</b></h1>
+<br />
+<br />
+<br />
+<h3>Your order with a total of <b>$@Model.OrderTotal</b>, is on its way!</h3>
+<br />
+<br />
+<h3>Total Items in the Order are <b>@Model.Medicines.Count</b></h3>
+<br />
+<h2><u>Items in the order are</u></h2>
+<br />
+@*@{ foreach( var med in Model.Medicines )
+    {
+        <br />
+        <h2>
+        <b>
+                @med.Name
+        </b>
+        </h2>
+    }
+}*@
+
+<table class="table">
+    <tbody>
+    @foreach (var item in Model.Medicines ) {
+        <tr>
+            <td>
+                <img src="~/images/@item.Image" alt="Image"  width="200" height="200" />
+            </td>            
+            <td>
+                <h3>
+                    <b>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </b>
+                </h3>
+            </td>
+
+            <td>
+                <h3>
+                    <b>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </b>
+                </h3>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+
